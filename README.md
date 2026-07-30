@@ -3,7 +3,7 @@
 > 基于本地视频分析的羽毛球数字孪生教练平台<br>
 > 暨南大学“羽光智教”团队出品
 
-[![Release](https://img.shields.io/badge/release-v1.0.1-2764ff)](https://github.com/Ryrant/yuguang-digital-coach/releases/tag/v1.1.0)
+[![Release](https://img.shields.io/badge/release-v1.1.0-2764ff)](https://github.com/Ryrant/yuguang-digital-coach/releases/tag/v1.1.0)
 [![License](https://img.shields.io/badge/license-MIT-24cdb8)](LICENSE)
 [![Privacy](https://img.shields.io/badge/video-local--only-ffb33e)](#隐私与数据边界)
 
