@@ -1,0 +1,20 @@
+羽光智教平台使用说明
+
+1. 必须先把 ZIP 压缩包完整解压到普通文件夹。
+   不要直接在压缩包预览窗口中运行 install.cmd 或 start.cmd。
+
+2. 首次使用：
+   双击 install.cmd，等待窗口明确显示“安装完成”。
+   安装需要联网，并要求电脑已安装：
+   - Python 3.11 或 Python 3.12
+   - Node.js 22 LTS
+
+3. 安装完成后：
+   双击 start.cmd。平台就绪后会自动打开浏览器。
+
+4. 停止平台：
+   双击 stop.cmd。
+
+5. 如果启动失败：
+   请查看 platform\logs 文件夹中的 backend.stderr.log
+   和 frontend.stderr.log。命令窗口也会保留错误信息，不会自动闪退。
