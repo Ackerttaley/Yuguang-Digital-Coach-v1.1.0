@@ -255,7 +255,7 @@ python -m pip install --upgrade pip
 
 ```text
 羽光智教：基于本地多模态视频分析的羽毛球数字孪生教练平台
-暨南大学“羽光智教”团队，v1.0.1，2026
+暨南大学“羽光智教”团队，v1.1.0，2026
 https://github.com/Ryrant/yuguang-digital-coach
 ```
 
