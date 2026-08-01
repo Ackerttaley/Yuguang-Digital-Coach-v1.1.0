@@ -1,4 +1,2 @@
-// Intentionally empty by default.
-// Add Drizzle tables here when the site actually needs a database.
-// See examples/d1/db/schema.ts for an opt-in example.
+// 需要持久化存储时，可在此处添加数据库表。
 export {};

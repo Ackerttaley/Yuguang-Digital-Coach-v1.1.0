@@ -1,4 +1,4 @@
-/** Cloudflare Worker entry point for the vinext-starter template. */
+/** 应用的 Cloudflare Worker 入口。 */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 
@@ -19,10 +19,9 @@ interface ExecutionContext {
   passThroughOnException(): void;
 }
 
-// Image security config. SVG sources with .svg extension auto-skip the
-// optimization endpoint on the client side (served directly, no proxy).
-// To route SVGs through the optimizer (with security headers), set
-// dangerouslyAllowSVG: true in next.config.js and uncomment below:
+// 图像安全配置。扩展名为 .svg 的资源会在客户端自动跳过优化接口，
+// 由服务器直接提供，不经过代理。若要让 SVG 经过带安全响应头的优化器，
+// 请在 next.config.js 中设置 dangerouslyAllowSVG: true，并取消下面代码的注释：
 // const imageConfig: ImageConfig = { dangerouslyAllowSVG: true };
 
 const worker = {

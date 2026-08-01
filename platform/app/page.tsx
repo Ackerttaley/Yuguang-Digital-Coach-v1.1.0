@@ -252,7 +252,7 @@ async function apiJson<T>(url: string, init?: RequestInit): Promise<T> {
       message =
         typeof detail === "string" ? detail : detail?.message ?? message;
     } catch {
-      // Keep the status-based message when the response is not JSON.
+      // 响应不是 JSON 时，保留根据状态生成的提示信息。
     }
     throw new Error(message);
   }
@@ -798,7 +798,7 @@ function Landing({
           </div>
         </div>
         <div className="pose-art">
-          {/* Vinext local mode does not provide a stable image optimizer route. */}
+          {/* Vinext 本地模式不提供稳定的图像优化路由。 */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/young-badminton-pexels.jpg"
@@ -893,7 +893,7 @@ function Landing({
           <strong>暨南大学“羽光智教”团队出品</strong>
           <span>本地视频分析与 2.5D 训练数据回放</span>
         </div>
-        <span>AI训练建议仅供训练参考</span>
+        <span>训练建议仅供训练参考</span>
       </footer>
     </main>
   );
@@ -2695,7 +2695,7 @@ function AnalysisView({
             </section>
           )}
           <p className="disclaimer">
-            AI训练建议仅供训练参考 · 视频仅在本机处理 · 不做人脸识别
+            训练建议仅供训练参考 · 视频仅在本机处理 · 不做人脸识别
           </p>
         </div>
       </div>

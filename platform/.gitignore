@@ -1,6 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# 忽略文件的详细说明见 https://help.github.com/articles/ignoring-files/
 
-# dependencies
+# 依赖
 /node_modules
 /.pnp
 .pnp.*
@@ -10,38 +10,38 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# 测试输出
 /coverage
 
-# next.js
+# Next.js 构建输出
 /.next/
 /.vinext/
 /out/
 
-# misc
+# 其他文件
 .DS_Store
 *.pem
 
-# debug
+# 调试日志
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# 环境变量文件（需要时可选择提交）
 .env*
 
-# vercel
+# Vercel 配置
 .vercel
 
-# typescript
+# TypeScript 生成文件
 next-env.d.ts
 /dist/
 /.wrangler/
 /outputs/
 /work/
 
-# local Python runtime and private analysis data
+# 本地 Python 运行环境和私有分析数据
 /.venv/
 /data/*
 !/data/.gitkeep

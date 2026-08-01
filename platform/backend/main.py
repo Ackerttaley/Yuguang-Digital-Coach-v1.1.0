@@ -865,7 +865,7 @@ def candidate_matches_player_side(
     pixel: tuple[float, float],
     player_side: str,
 ) -> bool:
-    """Classify a motion candidate in calibrated court space, not image space."""
+    """在校准后的场地坐标中判断运动候选点，而不是在图像坐标中判断。"""
     court_x, court_y = transform_point(matrix, pixel[0], pixel[1])
     if not (-0.8 <= court_x <= 6.9 and -1.5 <= court_y <= 14.9):
         return False

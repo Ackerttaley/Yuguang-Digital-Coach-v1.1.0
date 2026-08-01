@@ -1,19 +1,15 @@
 import vinext from "vinext";
 import { defineConfig } from "vite";
-import hostingConfig from "./.openai/hosting.json";
-import { sites } from "./build/sites-vite-plugin";
 import type { Plugin } from "vite";
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
+const LOCAL_PLACEHOLDER_DATABASE_ID =
   "00000000-0000-4000-8000-000000000000";
 
-const { d1, r2 } = hostingConfig;
+const d1 = process.env.CLOUDFLARE_D1_BINDING ?? null;
+const r2 = process.env.CLOUDFLARE_R2_BINDING ?? null;
 
-// macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
-const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
-
-// Vinext manifests are URL data, not filesystem paths. This post-transform
-// prevents Windows separators from leaking into rendered CSS/JS URLs.
+// Vinext 清单保存的是 URL 数据，而不是文件系统路径。此后处理可防止
+// Windows 路径分隔符进入最终生成的 CSS 和 JS 地址。
 function normalizeWindowsAssetUrls(): Plugin {
   const normalize = (value: string) =>
     value.replace(
@@ -42,8 +38,8 @@ const localBindingConfig = {
     ? [
         {
           binding: d1,
-          database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+          database_name: "yuguang-local-d1",
+          database_id: LOCAL_PLACEHOLDER_DATABASE_ID,
         },
       ]
     : [],
@@ -51,30 +47,28 @@ const localBindingConfig = {
     ? [
         {
           binding: r2,
-          bucket_name: "site-creator-r2",
+          bucket_name: "yuguang-local-r2",
         },
       ]
     : [],
 };
 
 export default defineConfig(async () => {
-  // Keep Wrangler and Miniflare state project-local. These are non-secret tool
-  // settings; application environment belongs in ignored `.env*` files.
+  // 将 Wrangler 和 Miniflare 的状态保存在项目目录内。这些属于非敏感工具配置；
+  // 应用环境变量应放在已忽略的 `.env*` 文件中。
   process.env.WRANGLER_WRITE_LOGS ??= "false";
   process.env.WRANGLER_LOG_PATH ??= ".wrangler/logs";
   process.env.MINIFLARE_REGISTRY_PATH ??= ".wrangler/registry";
 
-  // Wrangler snapshots its log path while the Cloudflare plugin is imported.
+  // Wrangler 会在导入 Cloudflare 插件时保存当时的日志路径。
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
-    server: isCodexSeatbeltSandbox
-      ? { watch: { useFsEvents: false, usePolling: true } }
-      : undefined,
+
     plugins: [
       vinext(),
       normalizeWindowsAssetUrls(),
-      sites(),
+
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
         config: localBindingConfig,

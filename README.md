@@ -3,7 +3,7 @@
 > 基于本地视频分析的羽毛球数字孪生教练平台<br>
 > 暨南大学“羽光智教”团队出品
 
-[![Release](https://img.shields.io/badge/release-v1.1.0-2764ff)](https://github.com/Ryrant/yuguang-digital-coach/releases/tag/v1.1.0)
+[![Release](https://img.shields.io/badge/release-v1.0.1-2764ff)](https://github.com/Ryrant/yuguang-digital-coach/releases/tag/v1.1.0)
 [![License](https://img.shields.io/badge/license-MIT-24cdb8)](LICENSE)
 [![Privacy](https://img.shields.io/badge/video-local--only-ffb33e)](#隐私与数据边界)
 
@@ -95,8 +95,6 @@ FastAPI 本地服务（127.0.0.1:8000）
 | 前端配套工具 | `@cloudflare/vite-plugin==1.37.1`、`@vitejs/plugin-react==6.0.2`、`@vitejs/plugin-rsc==0.5.26`、`@tailwindcss/postcss==4.2.1`、`drizzle-kit==0.31.10`、`eslint-config-next==16.2.6`、`react-server-dom-webpack==19.2.6` 及对应 TypeScript 类型包 |
 
 PyTorch、CUDA、Docker、WSL 和 Hyper-V 均不是默认依赖。
-
-安装过程可能有10分钟，并且占据1.5G左右的存储空间，请预留好足够的时间和存储空间。
 
 ### 2. 启动
 
@@ -213,7 +211,7 @@ npm test
 - 导入的视频、`platform/data/`、数据库和分析缓存默认不会提交到公开仓库；
 - 公开仓库不包含暨南大学学生训练原视频；
 - 使用者应确保对导入视频具有合法处理权限；
-- AI 训练建议只用于训练参考，不能替代专业教练或医疗判断。
+- 训练建议只用于训练参考，不能替代专业教练或医疗判断。
 
 ## 常见问题
 
@@ -269,4 +267,4 @@ https://github.com/Ryrant/yuguang-digital-coach
 
 ---
 
-暨南大学“羽光智教”团队出品 · AI 训练建议仅供训练参考
+暨南大学“羽光智教”团队出品 · 训练建议仅供训练参考

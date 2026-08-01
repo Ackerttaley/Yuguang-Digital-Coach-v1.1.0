@@ -9,9 +9,8 @@ const packageRoot = dirname(packageJsonPath);
 const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8"));
 const markerPath = join(packageRoot, ".yuguang-windows-path-check.json");
 
-// The runtime workaround lives in vite.config.ts so it remains deterministic
-// across npm ci. This install-time check records the Vinext version that was
-// verified and fails clearly if the dependency cannot be resolved.
+// 运行时兼容处理位于 vite.config.ts 中，以保证 npm ci 的结果稳定一致。
+// 此安装阶段检查会记录已验证的 Vinext 版本；依赖无法解析时会明确报错。
 await writeFile(
   markerPath,
   `${JSON.stringify(
