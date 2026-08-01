@@ -84,6 +84,15 @@ FastAPI 本地服务（127.0.0.1:8000）
 
 安装脚本会自动检测 Python 3.11/3.12 与 Node.js 22.13+，创建项目专用的 `platform/.venv`，执行 `pip install -r requirements.txt` 和 `npm ci`，修复 Vinext 的 Windows 兼容项，并完成后端及姿态资源自检。依赖均安装在项目目录内，不会把 Python 包安装到系统 Python 中。
 
+如果没有安装 Python 3.12 和 Node.js 22 LTS，请以管理员身份打开 CMD，依次运行：
+
+```cmd
+winget install --id Python.Python.3.12 -e
+winget install --id OpenJS.NodeJS.LTS -e --version 22.23.1
+```
+
+> **注意：** Node.js 更新的版本可以兼容，但是 Python 3.13 及以上版本无法运行。
+
 安装的项目直接依赖如下；它们的间接依赖由 `requirements.txt` 和 `package-lock.json` 锁定并自动安装。
 
 | 类别 | 直接依赖 |
