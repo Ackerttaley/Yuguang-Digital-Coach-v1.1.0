@@ -68,7 +68,7 @@ FastAPI 本地服务（127.0.0.1:8000）
 - Windows 11
 - Python 3.12.7
 - Node.js 22+
-- RTX 4060 Laptop 8 GB
+- NVIDIA GeForce RTX 5060 Laptop GPU
 
 ## 快速复现
 
